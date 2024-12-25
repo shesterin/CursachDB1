@@ -1,12 +1,12 @@
 import os
-from Modules.generate_dataset import generate_dataset
+from Modules.generate_dataset import generate_dataset_csv
 from Modules.cluster_clients import cluster_clients
 from Modules.visualize_clusters import visualize_clusters
 
 
 def main():
     # Генерация датасета
-    folder_path, dataset = generate_dataset()
+    folder_path, dataset = generate_dataset_csv()
 
     # Кластеризация клиентов
     labels = cluster_clients(dataset[['CreditScore', 'DebtToIncomeRatio', 'LoanAmount']])
