@@ -12,4 +12,7 @@ def visualize_clusters(data, labels, folder_path):
 
     # Сохранение визуализации
     plt.savefig(f'{folder_path}/clusters_visualization.png')
+
+    # Открытие изображения в отдельном окне
+    plt.show()  # {{ edit_1 }}
     plt.close()
