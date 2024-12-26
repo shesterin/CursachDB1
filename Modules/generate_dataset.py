@@ -4,7 +4,6 @@ import csv, sqlite3
 import os
 from datetime import datetime
 
-
 def generate_dataset_csv(num_samples=100):
     # Генерация случайных данных
     data = {
@@ -21,25 +20,12 @@ def generate_dataset_csv(num_samples=100):
     os.makedirs(folder_path, exist_ok=True)
 
     # Сохранение датасета в CSV
-    df.to_csv(f'{folder_path}/dataset.csv', index=False)
+    csv_file_path = f'{folder_path}/dataset.csv'
+    df.to_csv(csv_file_path, index=False)
 
-    #con = sqlite3.connect(f'{timestamp}dataset.db')
-    #cur = con.cursor()
-    #cur.execute("""CREATE TABLE clients(
-    #     ClientID INTEGER NOT NULL,
-    #     CreditScore INTEGER NOT NULL,
-    #     DebtToIncomeRatio INTEGER NOT NULL,
-    #     LoanAmount INTEGER NOT NULL
-    # );""")
-
-    #with open(f'{folder_path}/dataset.csv', 'r', encoding="utf8") as f:
-    #    dr = csv.DictReader(f, delimiter=",")
-    #    to_db = [(i['ClientID'], i['CreditScore'], i['DebtToIncomeRatio'], i['LoanAmount']) for i in dr]
-
-    #cur.executemany("INSERT INTO BD (ClientID, CreditScore, DebtToIncomeRatio, LoanAmount) VALUES (?, ?, ?);", to_db)
-    #con.commit()
-    #con.close()
+    # Подключение к базе данных SQLite
+    conn = sqlite3.connect(f'{folder_path}/database.db')
+    df.to_sql('Dataset', conn, if_exists='replace', index=False)
+    conn.close()
 
     return folder_path, df
-
-

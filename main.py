@@ -9,7 +9,7 @@ def main():
     folder_path, dataset = generate_dataset_csv()
 
     # Кластеризация клиентов
-    labels = cluster_clients(dataset[['CreditScore', 'DebtToIncomeRatio', 'LoanAmount']])
+    labels = cluster_clients(dataset)
 
     # Визуализация кластеров
     visualize_clusters(dataset, labels, folder_path)
