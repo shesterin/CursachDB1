@@ -4,7 +4,7 @@ import csv, sqlite3
 import os
 from datetime import datetime
 
-def generate_dataset_csv(num_samples=100):
+def generate_dataset_csv(num_samples=5000):
     # Генерация случайных данных
     data = {
         'ClientID': range(1, num_samples + 1),
