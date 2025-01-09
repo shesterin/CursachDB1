@@ -4,21 +4,6 @@ from Modules.generate_dataset import generate_dataset_csv
 from Modules.cluster_clients import cluster_clients
 from Modules.visualize_clusters import visualize_clusters
 
-
-def run_program():
-    # Генерация датасета
-    folder_path, dataset = generate_dataset_csv()
-    output_text.insert(tk.END, "Датасет сгенерирован.\n")
-
-    # Кластеризация клиентов
-    labels = cluster_clients(dataset)
-    output_text.insert(tk.END, "Клиенты кластеризованы.\n")
-
-    # Визуализация кластеров
-    visualize_clusters(dataset, labels, folder_path)
-    output_text.insert(tk.END, "Кластеры визуализированы.\n")
-
-
 def main():
     # Создание основного окна
     window = tk.Tk()
@@ -36,6 +21,18 @@ def main():
     # Запуск основного цикла
     window.mainloop()
 
+def run_program():
+    # Генерация датасета
+    folder_path, dataset = generate_dataset_csv()
+    output_text.insert(tk.END, "Датасет сгенерирован.\n")
+
+    # Кластеризация клиентов
+    labels = cluster_clients(dataset)
+    output_text.insert(tk.END, "Клиенты кластеризованы.\n")
+
+    # Визуализация кластеров
+    visualize_clusters(dataset, labels, folder_path)
+    output_text.insert(tk.END, "Кластеры визуализированы.\n")
 
 if __name__ == "__main__":
     main()
