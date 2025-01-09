@@ -1,2 +1,11 @@
-* linguist-vendored
-*.python linguist-vendored=false
+# Example of a `.gitattributes` file which reclassifies `.rb` files as Java:
+*.py linguist-language=Python
+
+# Replace any whitespace in the language name with hyphens:
+*.glyphs linguist-language=OpenStep-Property-List
+
+# Language names are case-insensitive and may be specified using an alias.
+# So, the following three lines are all functionally equivalent:
+*.py linguist-language=python
+*.py linguist-language=Python
+*.py linguist-language=PYTHON
